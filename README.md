@@ -1,6 +1,6 @@
-# hackernews-async-ts
+# egg-hasura
 
-[Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
+Egg.js For Hasura
 
 ## QuickStart
 
