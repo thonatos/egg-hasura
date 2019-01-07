@@ -2,12 +2,14 @@
 // Do not modify this file!!!!!!!!!
 
 import 'egg';
-import ExportAuth from '../../../app/controller/auth';
 import ExportHome from '../../../app/controller/home';
+import ExportApiUsers from '../../../app/controller/api/users';
 
 declare module 'egg' {
   interface IController {
-    auth: ExportAuth;
     home: ExportHome;
+    api: {
+      users: ExportApiUsers;
+    }
   }
 }

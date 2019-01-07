@@ -3,3 +3,4 @@
 
 import 'egg';
 import 'egg-jwt';
+import 'egg-sequelize';
