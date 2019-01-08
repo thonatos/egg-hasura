@@ -1,6 +1,9 @@
+import * as dotenv from 'dotenv';
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
 
 export default (appInfo: EggAppInfo) => {
+  dotenv.config();
+
   const config = {} as PowerPartial<EggAppConfig>;
 
   config.keys = appInfo.name + '_1546584280632_768';
@@ -10,6 +13,13 @@ export default (appInfo: EggAppInfo) => {
   config.security = {
     csrf: {
       ignoreJSON: true,
+    },
+  };
+
+  config.view = {
+    defaultExtension: '.nj',
+    mapping: {
+      '.nj': 'nunjucks',
     },
   };
 

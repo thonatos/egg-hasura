@@ -1,5 +1,5 @@
-import { Service } from 'egg';
 import * as crypto from 'crypto';
+import { Service } from 'egg';
 
 export default class Users extends Service {
   public async create(user, password = '') {
@@ -19,7 +19,7 @@ export default class Users extends Service {
   public async login(username: string, password: string) {
     const { ctx } = this;
 
-    const user = await ctx.model.Users.findOne({
+    const user: any = await ctx.model.Users.findOne({
       where: {
         username,
       },
@@ -30,10 +30,10 @@ export default class Users extends Service {
     }
 
     const hash = crypto
-      .createHmac('sha256', user['salt'])
+      .createHmac('sha256', user.salt)
       .update(password)
       .digest('hex');
 
-    return hash === user['hash'] ? user : null;
+    return hash === user.hash ? user : null;
   }
 }

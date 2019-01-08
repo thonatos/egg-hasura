@@ -3,6 +3,9 @@ import { Controller } from 'egg';
 export default class HomeController extends Controller {
   public async index() {
     const { ctx } = this;
-    ctx.body = 'Egg.js for Hasura';
+    await ctx.render('home.nj', {
+      title: 'Egg.js for Hasura',
+      message: 'Egg.js for Hasura.',      
+    });
   }
 }

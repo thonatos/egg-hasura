@@ -2,5 +2,6 @@
 // Do not modify this file!!!!!!!!!
 
 import 'egg';
+import 'egg-view-nunjucks';
 import 'egg-jwt';
 import 'egg-sequelize';

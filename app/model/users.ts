@@ -3,13 +3,13 @@ import { Application } from 'egg';
 export default (app: Application) => {
   const { INTEGER, TEXT } = app.Sequelize;
 
-  const User = app.model.define(
+  const user = app.model.define(
     'users',
     {
       id: {
         type: INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
       },
       username: TEXT,
       nickname: TEXT,
@@ -22,5 +22,5 @@ export default (app: Application) => {
     },
   );
 
-  return User;
+  return user;
 };
