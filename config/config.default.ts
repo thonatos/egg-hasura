@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv';
+import * as path from 'path';
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
 
 export default (appInfo: EggAppInfo) => {
@@ -9,7 +10,7 @@ export default (appInfo: EggAppInfo) => {
   config.keys = appInfo.name + '_1546584280632_768';
 
   config.middleware = [];
-
+  
   config.security = {
     csrf: {
       ignoreJSON: true,
@@ -17,9 +18,25 @@ export default (appInfo: EggAppInfo) => {
   };
 
   config.view = {
+    root: path.join(appInfo.baseDir, 'app/view'),
     defaultExtension: '.nj',
     mapping: {
       '.nj': 'nunjucks',
+      '.html': 'nunjucks',
+    },
+  };
+
+  config.assets = {
+    publicPath: '/public',
+    devServer: {
+      autoPort: true,
+      command: 'umi dev --port={port}',
+      env: {
+        APP_ROOT: path.join(__dirname, '../app/web'),
+        BROWSER: 'none',
+        SOCKET_SERVER: 'http://127.0.0.1:{port}',
+      },
+      debug: true,
     },
   };
 

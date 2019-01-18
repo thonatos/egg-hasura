@@ -3,5 +3,6 @@
 
 import 'egg';
 import 'egg-view-nunjucks';
+import 'egg-view-assets';
 import 'egg-jwt';
 import 'egg-sequelize';
