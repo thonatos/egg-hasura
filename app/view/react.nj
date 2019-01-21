@@ -11,12 +11,12 @@
     <script>
       window.routerBase = '/';
       window.resourceBaseUrl = '{{ helper.assets.resourceBase }}';
+
     </script>
   </head>
 
   <body>
     <div id="root"></div>
-
 
     {% if ctx.app.config.env === 'local' -%}
     {{ helper.assets.getScript('umi.dll.js') | safe }}
