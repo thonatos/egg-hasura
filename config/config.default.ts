@@ -10,7 +10,7 @@ export default (appInfo: EggAppInfo) => {
   config.keys = appInfo.name + '_1546584280632_768';
 
   config.middleware = [];
-  
+
   config.security = {
     csrf: {
       ignoreJSON: true,
@@ -57,6 +57,7 @@ export default (appInfo: EggAppInfo) => {
   const bizConfig = {
     site: {
       register: true,
+      hasura_ak: process.env.SITE_HASURA_AK || 'hasura',
     },
   };
 
